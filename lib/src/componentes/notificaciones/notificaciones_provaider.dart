@@ -9,7 +9,7 @@ import 'package:http/http.dart' as http;
 class NotificacionProvider {
    final prefs = new PreferenciasUsuario();
         
-  String _urlapi         = 'http://corocoras.apptransportes.com';
+  String _urlapi         = 'https://corocoras.apptransportes.com';
  
   final _streamcotroller = StreamController<List<Notificacion>>.broadcast();
   

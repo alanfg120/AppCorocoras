@@ -40,18 +40,10 @@ class _VehiculoDetalleState extends State<VehiculoDetalle> {
                                    ), 
                                    
                                    propetario(vehiculo),
-                                   Text("Polizas",style: TextStyle(
-                                        fontWeight: FontWeight.bold, 
-                                        fontSize: 15.0
-                                     )
-                                  ), 
-                                  Tarjeta(vehiculo.poliza),
-                                   Text("Certificados",style: TextStyle(
-                                        fontWeight: FontWeight.bold, 
-                                        fontSize: 15.0
-                                     )
-                                   ),
-                                  Tarjeta(vehiculo.certificados)
+                                   titulo("Polizas"),
+                                   Tarjeta(vehiculo.poliza),
+                                 
+                                
                               ];
      return Scaffold(
            body: CustomScrollView(
@@ -73,6 +65,12 @@ class _VehiculoDetalleState extends State<VehiculoDetalle> {
          
          if(vehiculo.tipo=="mula"){
            if(vehiculo.quintarueda.isNotEmpty)informacion.insert(4,quintarueda(vehiculo.quintarueda));
+         }
+         if(vehiculo.tipo=="grua"){
+           if(vehiculo.quintarueda.isNotEmpty){
+                       informacion.add(titulo("Certificados"));
+                       informacion.add(Tarjeta(vehiculo.certificados));
+           }
          }
         return Column(children: informacion);
   }
@@ -160,6 +158,10 @@ class _VehiculoDetalleState extends State<VehiculoDetalle> {
 
   }
   
- 
+  Widget titulo(texto)=>  Text(texto,style: TextStyle(
+                                            fontWeight: FontWeight.bold, 
+                                            fontSize: 15.0
+                                          )
+                         );
 
 }
