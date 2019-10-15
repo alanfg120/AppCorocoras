@@ -35,7 +35,7 @@ class ConductorProvider {
                                              '$_urlapi/conductor/get/tipo/conductor',
                                              headers: {HttpHeaders.authorizationHeader: 'Bearer ${ prefs.token }'}
                                              );
-                                if (resp.statusCode == 200){
+                                if (resp.statusCode == 200){ 
                                 final decodedData = json.decode(resp.body);
                                 final conductores = new Conductores.fromJsonList(decodedData);
                                 conductoresSink(conductores.items);
